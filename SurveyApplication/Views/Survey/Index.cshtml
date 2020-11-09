@@ -1,0 +1,143 @@
+﻿@model SurveyApplication.Models.ViewModels.UserViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <h4>Take our survey</h4>
+    </div>
+    <div class="col-lg-12">
+        <p>Personal details</p>
+    </div>
+    <div class="col-lg-12">
+       @using (Html.BeginForm("create", "survey", FormMethod.Post))
+       {
+           Html.AntiForgeryToken();
+           
+           <div class="row">
+               <div class="col-lg-4">
+                   <div class="row">
+                       <div class="col-lg-12">
+                           <div class="form-group">
+                               <label for="Surname">@Html.DisplayNameFor(m => m.Surname)</label>
+                               @Html.TextBoxFor(m => m.Surname, new { @class = "form-control" })
+                           </div>
+                       </div>
+                       <div class="col-lg-12">
+                           <div class="form-group">
+                               <label for="FirstName">@Html.DisplayNameFor(m => m.FirstName)</label>
+                               @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+                           </div>
+                       </div>
+                       <div class="col-lg-12">
+                           <div class="form-group">
+                               <label for="ContactNumber">@Html.DisplayNameFor(m => m.ContactNumber)</label>
+                               @Html.TextBoxFor(m => m.ContactNumber, new { @class = "form-control" })
+                           </div>
+                       </div>
+                       <div class="col-lg-12">
+                           <div class="form-group">
+                               <label for="Date">@Html.DisplayNameFor(m => m.Date)</label>
+                               @Html.TextBoxFor(m => m.Date, new { @class = "form-control" })
+                           </div>
+                       </div>
+                       <div class="col-lg-12">
+                           <div class="form-group">
+                               <label for="Age">@Html.DisplayNameFor(m => m.Age)</label>
+                               @Html.TextBoxFor(m => m.Age, new { @class = "form-control" })
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+           <div class="row">
+                <div class="col-lg-12">
+                    <p>What is your favourite food? (You can choose more than one answer)</p>
+                </div>
+               <div class="col-lg-12">
+                   <div>
+                       <input name="food[]" type="checkbox" value="Pizza" /> Pizza
+                   </div>
+                   <div>
+                       <input name="food[]" type="checkbox" value="Pasta" /> Pasta
+                   </div>
+                   <div>
+                       <input name="food[]" type="checkbox" value="Pap and Wors" /> Pap and Wors
+                   </div>
+                   <div>
+                       <input name="food[]" type="checkbox" value="Chicken stir fry" /> Chicken stir fry
+                   </div>
+                   <div>
+                       <input name="food[]" type="checkbox" value="Beef stir fry" /> Beef stir fry
+                   </div>
+                   <div>
+                       <input name="food[]" type="checkbox" value="Other" /> Other
+                   </div>
+               </div>
+           </div>
+           <div class="row">
+               <div class="col-lg-12">
+                   <p>On a scale of 1 to 5 indicate whether you strongly agree to strongly disagree</p>
+               </div>
+               <div class="col-lg-12">
+                   <table class="table table-striped">
+                       <thead>
+                           <tr>
+                               <th></th>
+                               <th>Stringly Agree (1)</th>
+                               <th>Agree (2)</th>
+                               <th>Neutral (3)</th>
+                               <th>Disagree (4)</th>
+                               <th>Strongly disagree (5)</th>
+                           </tr>
+                       </thead>
+                       <tbody>
+                           <tr>
+                               <td>I like to eat out</td>
+                               <td><input type="radio" name="" value="" /></td>
+                               <td><input type="radio" name="" value="" /></td>
+                               <td><input type="radio" name="" value="" /></td>
+                               <td><input type="radio" name="" value="" /></td>
+                               <td><input type="radio" name="" value="" /></td>
+                           </tr>
+                           <tr>
+                               <td>I like to watch movies</td>
+                               <td><input type="radio" name="" value="" /></td>
+                               <td><input type="radio" name="" value="" /></td>
+                               <td><input type="radio" name="" value="" /></td>
+                               <td><input type="radio" name="" value="" /></td>
+                               <td><input type="radio" name="" value="" /></td>
+                           </tr>
+                           <tr>
+                               <td>I like whatch TV</td>
+                               <td><input type="radio" name="" value="" /></td>
+                               <td><input type="radio" name="" value="" /></td>
+                               <td><input type="radio" name="" value="" /></td>
+                               <td><input type="radio" name="" value="" /></td>
+                               <td><input type="radio" name="" value="" /></td>
+                           </tr>
+                           <tr>
+                               <td>I like to I like to listen to the radio</td>
+                               <td><input type="radio" name="" value="" /></td>
+                               <td><input type="radio" name="" value="" /></td>
+                               <td><input type="radio" name="" value="" /></td>
+                               <td><input type="radio" name="" value="" /></td>
+                               <td><input type="radio" name="" value="" /></td>
+                           </tr>
+                       </tbody>
+                   </table>
+               </div>
+           </div>
+           <div class="row">
+               <div class="col-lg-12">
+                   <div class="form-group">
+                       <input type="submit" value="Submit" class="btn btn-success" />
+                   </div>
+               </div>
+           </div>
+       }
+    </div>
+</div>
+
